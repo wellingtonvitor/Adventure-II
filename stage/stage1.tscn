@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Camera.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/personagens/personagem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/tileset/tileset1.1.tres" type="TileSet" id=3]
+[ext_resource path="res://Sprites/inimigos/inimigo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://stage/hud/barra de vida vazia.png" type="Texture" id=5]
+[ext_resource path="res://stage/hud/barra de vida cheia.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/barra de vida.gd" type="Script" id=7]
+
+[node name="stage1" type="Node2D"]
+
+[node name="Camera" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="personagem" parent="." instance=ExtResource( 2 )]
+position = Vector2( 242.805, 289.752 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 356.906, 259.872 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -3080059, 16, 0, -3080057, 16, 0, -3080007, 19, 0, -3080005, 19, 0, -2686909, 16, 0, -2686843, 16, 0, -2686841, 16, 0, -2686791, 18, 0, -2686789, 19, 0, -2293693, 16, 0, -2293627, 16, 0, -2293625, 16, 0, -2293575, 19, 0, -2293573, 19, 0, -2031485, 28, 0, -2031479, 29, 0, -1900477, 16, 0, -1900361, 26, 0, -1900359, 26, 0, -1900357, 30, 0, -1900355, 30, 0, -1507261, 16, 0, -1310589, 29, 0, -1310587, 29, 0, -1310585, 29, 0, -1310583, 29, 0, -1310537, 3, 0, -1245103, 25, 0, -1179565, 2, 0, -1179559, 2, 0, -1179553, 2, 0, -1179547, 2, 0, -1179541, 2, 0, -1179535, 2, 0, -1179529, 2, 0, -1179523, 2, 0, -1179517, 2, 0, -1179511, 2, 0, -1179505, 3, 0, -1179499, 2, 0, -1179493, 3, 0, -1179487, 2, 0, -1179481, 2, 0, -1179475, 2, 0, -1179469, 2, 0, -1179463, 2, 0, -1179457, 4, 0, -1048599, 0, 0, -1048593, 0, 0, -1048587, 0, 0, -1048581, 0, 0, -1114111, 0, 0, -1114105, 0, 0, -1114099, 0, 0, -1114093, 0, 0, -1114087, 25, 0, -1114085, 25, 0, -1114083, 14, 0, -1114081, 14, 0, -1114079, 0, 0, -1114073, 0, 0, -1114067, 0, 0, -1114061, 0, 0, -1114055, 0, 0, -1114049, 0, 0, -1114031, 25, 0, -917527, 14, 0, -982959, 14, 0, -720867, 14, 0, -720865, 14, 0, -524311, 14, 0, -589743, 14, 0, -327651, 25, 0, -327649, 25, 0, -131095, 14, 0, -196581, 0, 0, -196575, 25, 0, -196527, 14, 0, 262121, 14, 0, 196689, 14, 0, 327672, 25, 0, 655337, 25, 0, 655339, 0, 0, 655345, 0, 0, 655351, 0, 0, 655357, 0, 0, 589827, 0, 0, 589833, 0, 0, 589839, 0, 0, 589845, 0, 0, 589851, 0, 0, 589857, 0, 0, 589863, 0, 0, 589869, 0, 0, 589875, 0, 0, 589881, 0, 0, 589887, 0, 0, 589893, 0, 0, 589899, 0, 0, 589905, 25, 0 )
+
+[node name="inimigo1" parent="." instance=ExtResource( 4 )]
+position = Vector2( 204.475, 367.278 )
+speed = 100
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+margin_left = 21.0
+margin_top = 21.0
+margin_right = 61.0
+margin_bottom = 61.0
+
+[node name="barra de vida" type="TextureProgress" parent="CanvasLayer/HBoxContainer"]
+margin_right = 99.0
+margin_bottom = 40.0
+max_value = 99.0
+value = 99.0
+texture_over = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
+script = ExtResource( 7 )

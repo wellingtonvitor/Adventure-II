@@ -1,0 +1,61 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/personagem.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/personagens/per tïro.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/personagens/per tiro2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/personagens/per tiro3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/personagens/per idle.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/personagens/per run3.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/personagens/per run5.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/personagens/per run6.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/personagens/per run7.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/personagens/per run8.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/personagens/per run9.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/personagens/per run10.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/personagens/per jump.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "atirar",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "igle",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "jump",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 33.5615 )
+
+[node name="personagem" type="KinematicBody2D"]
+collision/safe_margin = 0.01
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.332161, 0.0559626 )
+scale = Vector2( 2.39313, 2.10416 )
+frames = SubResource( 1 )
+animation = "igle"
+
+[node name="Collision1" type="CollisionShape2D" parent="."]
+light_mask = 2
+position = Vector2( 1, 0.174824 )
+shape = SubResource( 2 )
